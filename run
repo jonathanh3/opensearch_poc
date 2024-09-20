@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+helm repo add opensearch https://opensearch-project.github.io/helm-charts/
+helm install --namespace opensearch --create-namespace opensearch opensearch/opensearch -f opensearch-values.yml
+helm install --namespace opensearch opensearch-dashboard opensearch/opensearch-dashboards
+
+helm repo add fluent https://fluent.github.io/helm-charts
+helm install --namespace opensearch fluent-bit fluent/fluent-bit -f fluent-values.yml

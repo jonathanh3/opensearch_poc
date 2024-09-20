@@ -1,0 +1,21 @@
+config:
+  inputs: |
+    [INPUT]
+        Name cpu
+        Tag cpu
+    [INPUT]
+        Name mem
+        Tag memory
+  outputs: |
+    [OUTPUT]
+        Name opensearch
+        Match *
+        Host opensearch-cluster-master
+        Port 9200
+        Logstash_Format On
+        HTTP_User admin
+        HTTP_Passwd changemeCHANGEME123
+        tls on
+        tls.verify off
+        Suppress_Type_Name on
+  loglevel: warning
