@@ -8,7 +8,9 @@ bash run
 
 ## Access OpenSearch Dashboard
 
-k -n opensearch port-forward <opensearsh dashboard pod> 5601
+```shell
+kubectl -n opensearch port-forward svc/opensearch-dashboard-opensearch-dashboards 5601
+```
 
 ## REST API
 
