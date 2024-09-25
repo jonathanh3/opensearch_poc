@@ -1,3 +1,11 @@
+replicas: 1
+
+persistence:
+  enabled: false
+
 extraEnvs:
   - name: OPENSEARCH_INITIAL_ADMIN_PASSWORD
-    value: changemeCHANGEME123
+    valueFrom:
+      secretKeyRef:
+        name: opensearch-secrets
+        key: opensearch-admin-password
