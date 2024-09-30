@@ -2,6 +2,8 @@
 set -e
 
 helm repo add opensearch https://opensearch-project.github.io/helm-charts/
+kubectl create namespace opensearch
+kubectl apply -f secrets.yml
 helm install --namespace opensearch --create-namespace opensearch opensearch/opensearch -f opensearch-values.yml
 helm install --namespace opensearch opensearch-dashboard opensearch/opensearch-dashboards
 

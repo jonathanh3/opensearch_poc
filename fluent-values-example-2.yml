@@ -1,0 +1,28 @@
+config:
+  inputs: |
+    [INPUT]
+        Name tail
+        refresh_interval 5
+        path /var/log/*.log,/var/log/**/*.log
+        read_from_head true
+        Path_Key true
+  filters: |
+    [FILTER]
+        Name modify
+        Match *
+        Add hostname ${HOSTNAME}
+  outputs: |
+    [OUTPUT]
+        Name opensearch
+        Match *
+        Host opensearch-cluster-master
+        Port 9200
+        Logstash_Format Off
+        HTTP_User admin
+        HTTP_Passwd changemeCHANGEME123
+        tls On
+        tls.Verify Off
+        Suppress_Type_Name On
+        Index pod_hostname
+        Type _doc
+  loglevel: debug 

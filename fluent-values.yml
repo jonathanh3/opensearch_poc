@@ -12,6 +12,7 @@ config:
         Match *
         Host opensearch-cluster-master
         Port 9200
+        Index fluentbit-resources-logs
         Logstash_Format On
         HTTP_User admin
         HTTP_Passwd changemeCHANGEME123
